@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Paragraph Manipulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #container {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-right: 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Paragraph Manipulation Example</h2>
+
+  <!-- Button to add a new paragraph -->
+  <button id="addBtn">Add Paragraph</button>
+
+  <!-- Button to remove the last paragraph -->
+  <button id="removeBtn">Remove Last Paragraph</button>
+
+  <!-- Container where paragraphs will be added/removed -->
+  <div id="container"></div>
+
+  <script>
+    // Get references to buttons and container div
+    const addBtn = document.getElementById("addBtn");
+    const removeBtn = document.getElementById("removeBtn");
+    const container = document.getElementById("container");
+
+    // Event listener for "Add Paragraph" button
+    addBtn.addEventListener("click", function() {
+      // Create a new <p> element
+      const newPara = document.createElement("p");
+      // Set its text content
+      newPara.textContent = "This is a new paragraph.";
+      // Append it to the container
+      container.appendChild(newPara);
+    });
+
+    // Event listener for "Remove Last Paragraph" button
+    removeBtn.addEventListener("click", function() {
+      // Check if container has any child nodes
+      if (container.lastChild) {
+        // Remove the last child (last paragraph)
+        container.removeChild(container.lastChild);
+      }
+    });
+  </script>
+</body>
+</html>
